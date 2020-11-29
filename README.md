@@ -4,7 +4,7 @@
  * @Autor: lhl
  * @Date: 2020-11-21 09:08:25
  * @LastEditors: lhl
- * @LastEditTime: 2020-11-22 17:15:42
+ * @LastEditTime: 2020-11-29 21:59:26
 -->
 # vantpro
 
@@ -149,3 +149,9 @@ devServer: {
 	disableHostCheck: true, //webpack4.0 开启热更新
 }
 "serve": "vue-cli-service serve && webpack-dev-server --open"
+
+### npm代理设置1--常用1
+npm config set registry "http://registry.npmjs.org/"
+
+### npm代理设置2--常用2
+npm config set registry https://registry.npm.taobao.org

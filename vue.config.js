@@ -4,7 +4,7 @@
  * @Autor: lhl
  * @Date: 2020-11-22 16:44:07
  * @LastEditors: lhl
- * @LastEditTime: 2020-11-22 17:17:39
+ * @LastEditTime: 2020-11-29 23:13:33
  */
 module.exports = {
     devServer: {
@@ -16,7 +16,7 @@ module.exports = {
         proxy: {
             //设置代理
             '/api': {
-                target: 'xxx', // 接口的域名
+                target: 'www.baidu.com', // 接口的域名
                 changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
                 secure: false, // 如果是https接口，需要配置这个参数
                 pathRewrite: { // 如果接口本身没有/api需要通过pathRewrite来重写接口地址
