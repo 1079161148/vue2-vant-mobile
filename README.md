@@ -4,7 +4,7 @@
  * @Autor: lhl
  * @Date: 2020-11-21 09:08:25
  * @LastEditors: lhl
- * @LastEditTime: 2020-11-29 21:59:26
+ * @LastEditTime: 2021-01-23 22:33:42
 -->
 # vantpro
 
@@ -99,39 +99,6 @@ CDN地址：
 // 2.缓存区域的权限
 // 3.缓存的问题  (1) 缓存的更新问题
 // js内存 x64 1.4g x86 0.7g
-if(!window.httpCaches){
-  window.httpCaches = (function(){
-    var cache = {};
-    var cacheArr = []; // 存放缓存的数量
-    return {
-      get(api){
-        return new Promise((resolve,reject) => {
-          if (cache[api]){
-            resolve(cache[api])
-          } else {
-            this.set(api).then(res => {
-              // 自定义缓存数量大于多少条
-              if(cacheArr.length > 10){
-                var _name = cacheArr.shift() // shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值
-                this.remove(_name)
-              }
-              cache[api] = res;
-              cacheArr.push(api)
-              resolve(res);
-            })
-          }
-        })
-      },
-      set(api){
-        return axios.get(api)
-      },
-      remove(){
-        
-      }
-    }
-
-  })()
-}
 
 ### 项目打包 环境命令配置
 本地
@@ -155,3 +122,27 @@ npm config set registry "http://registry.npmjs.org/"
 
 ### npm代理设置2--常用2
 npm config set registry https://registry.npm.taobao.org
+
+### 自动添加前缀  
+### 1、根目录下创建postcss.config.js文件
+module.exports = {
+    plugins: {
+        autoprefixer: {}
+    }
+}
+### 2、package.json配置  或者 .browserslistrc 配置
+"browserslist": [
+  "> 1%",
+  "last 3 versions",
+  "not ie <= 8",
+  "chrome >= 14",
+  "safari >= 3",
+  "ios >= 8",
+  "android >= 4.0"
+]
+
+### sass less 全局变量报错 建议降低版本 sass-loader@7.3.1  less@5.0.0
+
+ValidationError: Invalid options object. Less Loader has been initialized using an options object that does not match the API schema.
+ - options has an unknown property 'javascriptEnabled'. These properties are valid:
+   object { lessOptions?, additionalData?, sourceMap?, webpackImporter?, implementation? }

@@ -1,0 +1,60 @@
+@charset 'utf-8';
+@import  './transition.less'; // 分号需要加上
+@import  './variables.less';
+
+html {
+    -webkit-text-size-adjust: 100%; // 禁用iPhone中Safari的字号自动调整
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling : touch;  // 解决IOS默认滑动很卡的情况
+}
+
+html * {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body,html,#app{
+    height: 100%;
+    font-family: -apple-system,"Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+// 单行溢出
+.one-txt-ellipsis{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+// 多行溢出 手机端使用
+.more-txt-ellipsis{
+    display: -webkit-box;
+    text-overflow:ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+// 移动端点击a链接出现阴影问题解决
+a:link,a:active,a:visited,a:hover {
+    background: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+// 如果是更改UI库里面的 placeholder需要加上 !important 才生效
+input::-webkit-input-placeholder{
+	color:#ccc !important;
+	opacity:1;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+	color:#ccc !important;
+	opacity:1;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+	color:#ccc !important;
+	opacity:1;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+	color:#ccc !important;
+	opacity:1;
+}

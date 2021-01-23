@@ -4,13 +4,14 @@
  * @Autor: lhl
  * @Date: 2020-11-21 09:08:00
  * @LastEditors: lhl
- * @LastEditTime: 2020-11-21 10:23:16
+ * @LastEditTime: 2021-01-23 15:44:12
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+// 路由懒加载 webpackChunkName如果一样就打成一个js文件不一样就打成多个文件
 const routes = [
   {
     path: '/',
